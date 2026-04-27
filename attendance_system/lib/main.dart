@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'screens/login_screen.dart';
 import 'screens/dashboard_router.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const AttendanceApp());
 }
 
@@ -33,23 +40,23 @@ class AuthWrapper extends StatefulWidget {
 }
 
 class _AuthWrapperState extends State<AuthWrapper> {
+  final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
-  // Later this will check JWT storage
   Future<bool> checkLogin() async {
-
-    // TODO: check stored JWT token
-    await Future.delayed(const Duration(seconds: 1));
-
+    final token = await _storage.read(key: 'jwt_token');
+    if (token != null) {
+      // Potentially validate token expiry here with JwtDecoder
+      return true;
+    }
     return false;
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
+    return FutureBuilder<bool>(
       future: checkLogin(),
       builder: (context, snapshot) {
-
-        if (!snapshot.hasData) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
