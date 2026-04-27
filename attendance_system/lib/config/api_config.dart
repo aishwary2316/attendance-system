@@ -1,3 +1,3 @@
 class ApiConfig {
-  static const baseUrl = "https://your-render-service.onrender.com";
+  static const baseUrl = "https://attendance.aishtrex.com/";
 }
