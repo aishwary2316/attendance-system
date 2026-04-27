@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "38187875378",
+    "project_id": "iiitm-attendance-system",
+    "storage_bucket": "iiitm-attendance-system.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38187875378:android:7a5350e3fc26170c17d02b",
+        "android_client_info": {
+          "package_name": "com.aishtrex.attendance.attendance_system"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38187875378-1dmq0otl5hco38l16mansksf9nlj4kf2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvAloyyORgGAICXNRxggaeFqpKQMv7rJ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38187875378-1dmq0otl5hco38l16mansksf9nlj4kf2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "38187875378-fblpl6cjg3steo47skmfji77mro72d6i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aishtrex.attendance.attendanceSystem"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
