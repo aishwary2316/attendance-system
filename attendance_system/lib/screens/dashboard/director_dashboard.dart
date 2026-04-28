@@ -4,7 +4,8 @@ import 'dart:async';
 import 'dart:math';
 
 class DirectorDashboard extends StatefulWidget {
-  const DirectorDashboard({super.key});
+  final bool isMock;
+  const DirectorDashboard({super.key, this.isMock = false});
 
   @override
   State<DirectorDashboard> createState() => _DirectorDashboardState();

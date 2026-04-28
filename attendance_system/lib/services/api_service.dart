@@ -153,6 +153,18 @@ class ApiService {
   Future<Response> markAttendance(Map<String, dynamic> data) => _dio.post('/attendance/mark/', data: data);
   Future<Response> getAttendanceBySession(String sessionId) => _dio.get('/attendance/session/$sessionId/');
 
+  // lib/services/api_service.dart
+
+  Future<Response> getAttendanceByStudent(String studentId) =>
+      _dio.get('/attendance/student/$studentId');
+  // Future<Response> getAttendanceByGroup(String groupId) =>
+  //     _dio.get('/attendance/group/$groupId');
+  Future<Response> getAttendanceByCourse(String courseId) =>
+      _dio.get('/attendance/course/$courseId');
+  // Future<Response> getAttendanceByFaculty(String facultyId) =>
+  //     _dio.get('/attendance/faculty/$facultyId');
+
+
   // Recognize with Face (Multipart)
   Future<Response> recognizeFaceAttendance({
     required String sessionId,
@@ -170,6 +182,12 @@ class ApiService {
   // ===========================================================================
   // IMAGES & ENROLLMENT
   // ===========================================================================
+
+  // List images for a student to get filenames
+  Future<Response> listStudentImages(String roll) => _dio.get('/images/students/$roll');
+
+// Helper to get the actual image URL for a specific file
+  String getImageUrl(String roll, String fileName) => "${ApiConfig.baseUrl}/images/students/$roll/$fileName";
 
   Future<Response> uploadStudentImage(String roll, List<int> fileBytes) async {
     FormData formData = FormData.fromMap({

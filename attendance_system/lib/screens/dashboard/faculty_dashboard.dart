@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FacultyDashboard extends StatefulWidget {
-  const FacultyDashboard({super.key});
+  final bool isMock;
+  const FacultyDashboard({super.key, this.isMock = false});
 
   @override
   State<FacultyDashboard> createState() => _FacultyDashboardState();

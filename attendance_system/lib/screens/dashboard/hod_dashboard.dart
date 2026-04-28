@@ -16,7 +16,8 @@ import 'package:flutter/material.dart';
 ///
 /// Replace TODO sections with real API calls (e.g., ApiService.fetchDeptMetrics()).
 class HodDashboard extends StatefulWidget {
-  const HodDashboard({super.key});
+  final bool isMock;
+  const HodDashboard({super.key, this.isMock = false});
 
   @override
   State<HodDashboard> createState() => _HodDashboardState();

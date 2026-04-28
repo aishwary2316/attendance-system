@@ -12,7 +12,8 @@ import 'package:flutter/material.dart';
 ///
 /// TODO: replace mock data + simulated delays with real ApiService calls
 class ParentDashboard extends StatefulWidget {
-  const ParentDashboard({super.key});
+  final bool isMock;
+  const ParentDashboard({super.key, this.isMock = false});
 
   @override
   State<ParentDashboard> createState() => _ParentDashboardState();

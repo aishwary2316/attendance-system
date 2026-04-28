@@ -2,7 +2,8 @@
 import 'package:flutter/material.dart';
 
 class AdminDashboard extends StatefulWidget {
-  const AdminDashboard({super.key});
+  final bool isMock;
+  const AdminDashboard({super.key, this.isMock = false});
 
   @override
   State<AdminDashboard> createState() => _AdminDashboardState();
