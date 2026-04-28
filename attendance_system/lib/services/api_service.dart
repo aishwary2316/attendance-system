@@ -45,7 +45,7 @@ class ApiService {
 
   // Added trailing slash which is often required by FastAPI routers
   Future<Response> googleLogin(String idToken) =>
-      _dio.post('/auth/google/', data: {'id_token': idToken});
+      _dio.post('/auth/google/login', data: {'id_token': idToken});
 
   Future<Response> getMe() => _dio.get('/auth/me/');
 

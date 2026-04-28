@@ -28,9 +28,11 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
     super.initState();
     // Initialize Google Sign-In exactly once.
+
     _googleSignIn.initialize(
-      clientId: "38187875378-fblpl6cjg3steo47skmfji77mro72d6i.apps.googleusercontent.com",
+      clientId: "38187875378-1dmq0otl5hco38l16mansksf9nlj4kf2.apps.googleusercontent.com",
     );
+
   }
 
   void _showSnack(String text, {Color? background}) {
@@ -50,8 +52,13 @@ class _LoginScreenState extends State<LoginScreen> {
       // 1. Trigger Google Sign-In using authenticate() (v7 API replaces signIn)
       final GoogleSignInAccount account = await _googleSignIn.authenticate();
 
+      if (account == null) {
+        setState(() => _isSigningIn = false);
+        return;
+      }
+
       // 2. Obtain Auth Tokens
-      final auth = account.authentication;
+      final auth = await account.authentication;
       final String? idToken = auth.idToken;
 
       if (idToken == null) {

@@ -25,14 +25,14 @@ class _DashboardRouterState extends State<DashboardRouter> {
 
   Future<String?> getUserRole() async {
 
-    final token = await storage.read(key: "jwt");
+    final token = await storage.read(key: "jwt_token");
 
     if (token == null) {
       return null;
     }
 
     if (JwtDecoder.isExpired(token)) {
-      await storage.delete(key: "jwt");
+      await storage.delete(key: "jwt_token");
       return null;
     }
 
